@@ -54,6 +54,8 @@ alias view="magick display"
 
 alias info="magick identify"
 
+source ~/.bash_aliases
+
 combine (){
 	magick montage -label %f -frame 5 -background '#336699' -geometry +4+4 $1 $2 $3
 }
