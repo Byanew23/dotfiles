@@ -1,0 +1,15 @@
+[user]
+	name = Byanew23
+	email = borislav.yanev23@gmail.com
+	signingkey = CB17A8B9FF41D6E1
+[core]
+	editor = vim
+[init]
+	defaultBranch = master
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
