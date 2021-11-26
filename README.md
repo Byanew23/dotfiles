@@ -16,6 +16,6 @@ rm README.md
 stow --adopt -vt ~ *
 ```
 
-> Note: use the `-n` flag to see the example output before commiting to linking your config files
+> Note: use the `-nvt` flags first to see the example output before commiting to linking your config files
 
 4. Enjoy
