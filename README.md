@@ -13,9 +13,11 @@ rm README.md
 3. Link all the configs
 
 ```sh
-stow --adopt -vt ~ *
+stow -vt ~ *
 ```
 
 > Note: use the `-nvt` flags first to see the example output before commiting to linking your config files
+
+> Note: if `stow` have conflicts because of empty unadopted files, use the `--adopt` flag to adopt and use the files as they are
 
 4. Enjoy
