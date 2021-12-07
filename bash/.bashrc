@@ -17,6 +17,8 @@ fi
 
 # Put your fun stuff here.
 
+echo"<--(*,..,*)--<<"
+
 export EDITOR='vim'
 
 # Export GPG key
