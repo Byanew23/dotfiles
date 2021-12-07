@@ -73,3 +73,8 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1="\D{%R} [\[\e[94m\]\u \[\e[32m\]\w\[\e[00m\]]\[\e[91m\]\$(parse_git_branch)\[\e[94m\]\$ \[\e[00m\]"
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -e "/usr/lib64/kitty/shell-integration/kitty.bash"; then source "/usr/lib64/kitty/shell-integration/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION
