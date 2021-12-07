@@ -17,7 +17,7 @@ fi
 
 # Put your fun stuff here.
 
-echo"<--(*,..,*)--<<"
+echo "<--(*,..,*)--<<"
 
 export EDITOR='vim'
 
