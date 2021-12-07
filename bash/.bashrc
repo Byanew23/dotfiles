@@ -46,7 +46,6 @@ alias vc='vim ~/.vimrc'
 
 alias cat="bat"
 
-alias gtoken="cat ~/docs/Github_token.txt | awk '{print $1}' | xclip -sel clip"
 alias pull="git pull --rebase"
 alias push="git push --force-with-lease"
 
@@ -66,10 +65,9 @@ combineNoBorder (){
 	magick montage -geometry +4+4 $1 $2 $3
 }
 
-gnb () {
-	git checkout canary && git pull && git checkout -b $1
+gignore (){
+	git update-index --assume-unchanged $1
 }
-
 # Show git branch and color the PS1
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
