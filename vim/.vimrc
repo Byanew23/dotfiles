@@ -11,6 +11,16 @@ set smartcase
 
 syntax on
 
+" Add the Ctrl-P pluggin
+" If not intalled get it from http://kien.github.io/ctrlp.vim/
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"Map Ctr-F to open Ctrl-P
+map <C-F> :CtrlP<CR>
+
+"Show hidden files
+let g:ctrlp_show_hidden = 1
+
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
