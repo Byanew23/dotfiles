@@ -15,8 +15,11 @@ syntax on
 " If not intalled get it from http://kien.github.io/ctrlp.vim/
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" Ignore files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 "Map Ctr-F to open Ctrl-P
-map <C-F> :CtrlP<CR>
+nnoremap <C-F> :CtrlP<CR>
 
 "Show hidden files
 let g:ctrlp_show_hidden = 1
