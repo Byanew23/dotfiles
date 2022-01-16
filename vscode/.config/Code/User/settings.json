@@ -51,5 +51,6 @@
   "timeline.excludeSources": ["git-history"],
   "terminal.integrated.rendererType": "dom",
   "workbench.iconTheme": "vscode-icons",
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "C_Cpp.updateChannel": "Insiders"
 }
