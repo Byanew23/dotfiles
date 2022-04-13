@@ -8,6 +8,7 @@
   "editor.cursorStyle": "block",
   "editor.fontLigatures": true,
   "editor.cursorBlinking": "phase",
+  "editor.hover.above": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -52,5 +53,12 @@
   "terminal.integrated.rendererType": "dom",
   "workbench.iconTheme": "vscode-icons",
   "diffEditor.ignoreTrimWhitespace": false,
-  "C_Cpp.updateChannel": "Insiders"
+  "markdown-preview-enhanced.liveUpdate": true,
+  "github.hosts": [
+    {
+        "host": "https://github.com",
+        "username": "oauth",
+        "token": "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"
+    }
+]
 }

@@ -17,13 +17,15 @@ fi
 
 # Put your fun stuff here.
 
+# echo "<-(x..x)-<<"
+
 export EDITOR='vim'
 
 # Export GPG key
 export GPG_TTY=$(tty)
 
 # Add local/bin to PATH
-export PATH="/usr/local/bin:$PATH"
+export PATH="/home/byanew/.bin:/usr/local/bin:$PATH"
 
 #add aliases
 alias ..="cd ../"
@@ -37,6 +39,8 @@ alias v='vim'
 alias g='git'
 alias gs='git status'
 alias gm='git switch canary'
+
+alias logs="sudo tail -f -n +20 /var/log/{kernel/current,dmesg}"
 
 alias sbc='source ~/.bashrc'
 alias bc='vim ~/.bashrc'
@@ -66,21 +70,20 @@ combineNoBorder (){
 gignore (){
 	git update-index --assume-unchanged $1
 }
-# Show git branch and color the PS1
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+
+gunignore (){
+	git update-index --no-assume-unchanged $1
 }
-export PS1="\D{%R} [\[\e[94m\]\u \[\e[32m\]\w\[\e[00m\]]\[\e[91m\]\$(parse_git_branch)\[\e[94m\]\$ \[\e[00m\]"
+# Show git branch and color the PS1
+# parse_git_branch() {
+     # git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+# }
+# export PS1="\D{%R} [\[\e[94m\]\u \[\e[32m\]\w\[\e[00m\]]\[\e[91m\]\$(parse_git_branch)\[\e[94m\]\$ \[\e[00m\]"
+
+# Initialize starship
+eval "$(starship init bash)"
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION
-if test -e "/usr/lib64/kitty/shell-integration/kitty.bash"
-then
-  source "/usr/lib64/kitty/shell-integration/kitty.bash"
-  alias ssh="kitty +kitten ssh"
-fi
+if test -e "/usr/lib64/kitty/shell-integration/kitty.bash"; then source "/usr/lib64/kitty/shell-integration/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
-
-# Init starship
-eval "$(starship init bash)"
-
