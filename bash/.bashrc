@@ -17,8 +17,6 @@ fi
 
 # Put your fun stuff here.
 
-echo "<--(*,..,*)--<<"
-
 export EDITOR='vim'
 
 # Export GPG key
@@ -76,5 +74,13 @@ export PS1="\D{%R} [\[\e[94m\]\u \[\e[32m\]\w\[\e[00m\]]\[\e[91m\]\$(parse_git_b
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION
-if test -e "/usr/lib64/kitty/shell-integration/kitty.bash"; then source "/usr/lib64/kitty/shell-integration/kitty.bash"; fi
+if test -e "/usr/lib64/kitty/shell-integration/kitty.bash"
+then
+  source "/usr/lib64/kitty/shell-integration/kitty.bash"
+  alias ssh="kitty +kitten ssh"
+fi
 # END_KITTY_SHELL_INTEGRATION
+
+# Init starship
+eval "$(starship init bash)"
+
