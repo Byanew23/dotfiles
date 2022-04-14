@@ -9,26 +9,28 @@ vscode"
 
 set -e
 
-args_with_no="--dotfiles --no --verbose --target=/home/$(whoami)/"
-args="--dotfiles --verbose --target=/home/$(whoami)/"
+args_with_no="--no --verbose --target=/home/$(whoami)/"
+args="--verbose --target=/home/$(whoami)/"
 
-SELECTED="The following configs are selected: "
+SELECTED_MESSAGE="The following configs are selected: "
+DONE_MESSSAGE="You are done! 🥳"
 
 stow_individually() {
 	for f in $FILES
 	do
 		echo "Do you want to stow $f"
-		select yne in "Yes" "No" "Exit"
+		options=("Yes" "No" "Exit")
+		select yne in "${options[@]}"
 		do
-	    	case $yne in
-    	    	Yes ) stow $args "$f" || adopt_err $f
+	    	case $REPLY in
+    	    	1 ) stow $args "$f" || adopt_err $f
 						break;;
-        		No ) break;;
-				Exit ) exit;;
+        		2 ) break;;
+				3 ) echo $DONE_MESSSAGE; exit;;
     		esac
 		done
 	done
-	echo "You are done! 🥳"
+	echo $DONE_MESSSAGE
 	exit
 }
 
@@ -40,22 +42,23 @@ adopt_err(){
 
 for f in $FILES
 do
-	SELECTED+="$f, "
+	SELECTED_MESSAGE+="$f, "
 done
-echo $SELECTED
+echo $SELECTED_MESSAGE
 
 echo ""
 
 
 while true; do
 	echo "What do you want to do?"
-	select opt in "Show me what will happen" "Stow Them" "Stow them individually" "Exit"
+	options=("Show me what will happen" "Stow Them" "Stow them individually" "Exit")
+	select opt in "${options[@]}"
 	do
-		case $opt in
-			"Show me what will happen" ) for f in $FILES; do stow $args_with_no $f || adopt_err $f; done; break;;
-			"Stow Them" ) for f in $FILES; do stow $args $f || adopt_err $f; done; echo "You are done! 🥳"; exit;;
-			"Stow them individually" ) stow_individually; break;;
-			"Exit" ) echo "You are done! 🥳"; exit;;
+		case $REPLY in
+			1 ) for f in $FILES; do stow $args_with_no $f || adopt_err $f; done; break;;
+			2 ) for f in $FILES; do stow $args $f || adopt_err $f; done; echo $DONE_MESSSAGE; exit;;
+			3 ) stow_individually; break;;
+			4 ) echo $DONE_MESSSAGE; exit;;
 		esac
 	done
 done
