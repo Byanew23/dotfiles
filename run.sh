@@ -5,7 +5,8 @@ flameshot
 git
 kitty
 vim
-vscode"
+vscode
+starship"
 
 set -e
 
