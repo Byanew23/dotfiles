@@ -83,6 +83,10 @@ gunignore (){
 # Initialize starship
 eval "$(starship init bash)"
 
+# Print the calendar and upcoming events
+alias hi="cal --monday && calendar -A 3"
+# Note: You need `app-misc/calendar` and a `~/.calendar/calendar` file in order to work
+alias event="vim ~/.calendar/calendar"
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -e "/usr/lib64/kitty/shell-integration/kitty.bash"; then source "/usr/lib64/kitty/shell-integration/kitty.bash"; fi
